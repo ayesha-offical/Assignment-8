@@ -20,8 +20,8 @@ async function Blog() {
   return (
     <section className="text-gray-600 body-font overflow-hidden  ">
     <div className="container px-5 py-24 mx-auto grid lg:grid-cols-2 grid-cols-1">
-        {data.map((postdata:Blogdata, iteration:number) =>(
-      <div className="flex flex-wrap ">
+        {data.map((postdata:Blogdata, index:number) =>(
+      <div key={index} className="flex flex-wrap ">
         <div className="p-12  flex flex-col items-start ">
          <Image className='rounded-md'
           alt="Blog image"

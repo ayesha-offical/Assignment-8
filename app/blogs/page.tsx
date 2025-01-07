@@ -1,18 +1,20 @@
 import React from 'react'
 import { client} from '@/sanity/lib/client'
 import Image from 'next/image'
+import Link from 'next/link'
 
-interface Blogdata {
+export interface Blogdata {
     title: string
     author: string
-    image: string
+    slug: string
+    Image: string
     publishedAt: string
     content: string
 }
 
 async function Blog() {
     const queries =`*[_type == "post"]{
-  title,author,"slug":slug.current,"image":Image.asset->url,publishedAt,content}`
+  title,author,"slug":slug.current,"Image":Image.asset->url,publishedAt,content}`
   const data = await client.fetch(queries)
   const blogData = data [0].blogData;
   console.log(blogData)
@@ -25,9 +27,9 @@ async function Blog() {
         <div className="p-12  flex flex-col items-start ">
          <Image className='rounded-md'
           alt="Blog image"
-          src={postdata.image}
-          width={400}
-          height={400}
+          src={postdata.Image}
+          width={500}
+          height={500}
 
          />
           <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
@@ -37,10 +39,12 @@ async function Blog() {
             {postdata.content.trim( ).slice(0, 200)}
           </p>
           <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-            <a className="text-indigo-500 inline-flex items-center">
-              Learn More
             
-            </a>
+            <Link href={`/blogs/${postdata.slug}`} className="text-indigo-700 inline-flex items-center"
+          
+            
+            >   Learn More</Link>
+             
             <svg
               className="w-4 h-4 ml-2"
               viewBox="0 0 24 24"

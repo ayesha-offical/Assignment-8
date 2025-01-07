@@ -13,12 +13,12 @@ const Header = () => {
       </a>
       <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center cursor-pointer">
         <a href="./about" className="mr-5 text-black hover:text-cyan-800">About</a>
-        <a href="./blogs" className="mr-5 text-black hover:text-cyan-800">Blogs</a>
+        <a href="/blogs" className="mr-5 text-black hover:text-cyan-800">Blogs</a>
         <a href="./" className="mr-5 text-black hover:text-cyan-800">Home</a>
 
       </nav>
      <Link href="/signup">
-      <Button className="inline-flex items-center bg-gray-800 text-white rounded-md px-4 py-2 hover:bg-gray-700">
+      <Button className="inline-flex items-center bg-gray-800 text-white rounded-md px-4 py-2">
         Sign Up
       </Button>
       </Link>
